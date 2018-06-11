@@ -4,38 +4,61 @@ import axios from 'axios';
 
 import './Board.css';
 import Card from './Card';
-import NewCardForm from './NewCardForm';
-import CARD_DATA from '../data/card-data.json';
+// import NewCardForm from './NewCardForm';
+// import CARD_DATA from '../data/card-data.json';
+
+const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi-Lindsey/cards";
 
 class Board extends Component {
   static propTypes = {
-    cards: PropTypes.array.isRequired
+    cards: PropTypes.array.isRequired,
   };
 
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
-      cards: props.cards
-      // cards: [],
+      cards: [],
     };
+  }
+
+  componentDidMount() {
+    console.log('In componentsDidMount');
+
+    // this.props.updateStatusCallback('Loading...', 'success');
+
+    axios.get(CARDS_URL)
+    .then((response) => {
+      console.log('Success!');
+      console.log(response.data);
+
+      // this.props.updateStatusCallback('Successfully loaded pets!', 'success');
+
+      const cards = response.data;
+      this.setState({ cards: cards });
+    })
+    .catch((error) => {
+      console.log('Error :(');
+      console.log(error);
+
+      // this.props.updateStatusCallback(error.message, 'error');
+    });
   }
 
   render() {
 
-
-    console.log(this.state.cards.cards);
-    const cards = this.state.cards.cards.map((card, index) => {
+    const cards = this.state.cards.map((card, index) => {
+      console.log(card)
       return <Card key={index}
-        text={card.text}
-        emoji={card.emoji} />
+        text={card.card.text}
+        emoji={card.card.emoji} />
     });
 
     return (
       <div className="board">
         { cards }
       </div>
-    )
+    );
   }
 
 }

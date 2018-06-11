@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 
-
-import cardData from './data/card-data.json';
-
 import Board from './components/Board';
-
 
 class App extends Component {
   render() {
 
     const cardComponents = <
       Board
-      cards={cardData}
       // url="https://inspiration-board.herokuapp.com/boards/"
-      // boardName={`Ada-Lovelace`}
+      // boardName={`Luxi-Lindsey`}
       />;
-
-    console.log(cardComponents)
 
     return (
       <section>
