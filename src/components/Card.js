@@ -12,10 +12,15 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="card">
-        {this.props.text}
-        {emoji.getUnicode(`${this.props.emoji}`)}
-      </div>
+      <section className="card">
+        <div className="card__content card__content-text">
+          {this.props.text}
+        </div>
+
+        <div className="card__content card__content-emoji">
+          {emoji.getUnicode(`${this.props.emoji}`)}
+        </div>
+      </section>
     )
   }
 }
