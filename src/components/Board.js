@@ -12,6 +12,7 @@ const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi-Lindsey/c
 class Board extends Component {
   static propTypes = {
     cards: PropTypes.array.isRequired,
+    updateStatusCallback: PropTypes.func.isRequired
   };
 
   constructor() {
@@ -25,14 +26,14 @@ class Board extends Component {
   componentDidMount() {
     console.log('In componentsDidMount');
 
-    // this.props.updateStatusCallback('Loading...', 'success');
+    this.props.updateStatusCallback('Loading...', 'success');
 
     axios.get(CARDS_URL)
     .then((response) => {
       console.log('Success!');
       console.log(response.data);
 
-      // this.props.updateStatusCallback('Successfully loaded pets!', 'success');
+      this.props.updateStatusCallback('Successfully loaded cards!', 'success');
 
       const cards = response.data;
       this.setState({ cards: cards });
@@ -41,7 +42,7 @@ class Board extends Component {
       console.log('Error :(');
       console.log(error);
 
-      // this.props.updateStatusCallback(error.message, 'error');
+      this.props.updateStatusCallback(error.message, 'error');
     });
   }
 

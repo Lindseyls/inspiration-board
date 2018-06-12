@@ -2,15 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Board from './components/Board';
+import Status from './components/Status';
 
 class App extends Component {
-  render() {
+  constructor() {
+    super();
 
-    const cardComponents = <
-      Board
-      // url="https://inspiration-board.herokuapp.com/boards/"
-      // boardName={`Luxi-Lindsey`}
-      />;
+    this.state={
+      status: {
+        messasge: 'loaded the page',
+        type: 'success'
+      }
+    }
+  }
+
+  updateStatus = (message, type) => {
+    this.setState({
+      status: {
+        message: message,
+        type: type
+      }
+    })
+  }
+
+  render() {
 
     return (
       <section>
@@ -18,7 +33,16 @@ class App extends Component {
           <h1 className="header__h1"><span className="header__text">Inspiration Board</span></h1>
         </header>
 
-          {cardComponents}
+      < Status
+        message={this.state.status.message}
+        type={this.state.status.type}
+      />
+
+      < Board
+        updateStatusCallback={this.updateStatus}
+        // url="https://inspiration-board.herokuapp.com/boards/"
+        // boardName={`Luxi-Lindsey`}
+      />;
 
       </section>
     );
