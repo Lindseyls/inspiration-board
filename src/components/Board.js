@@ -46,17 +46,30 @@ class Board extends Component {
     });
   }
 
-  addCard = (card) => {
-    let updateCards = this.state.cards;
-    updateCards.push(card);
+  addCard = (cardInfo) => {
+    console.log('In addCard');
 
-    this.setState({ cards: updateCards });
+    axios.post(CARDS_URL, cardInfo)
+    .then((response) => {
+      console.log(response)
+
+      this.props.updateStatusCallback(`Successfully added card ${ response.data.id }!`, 'success');
+
+      let updateCards = this.state.cards;
+      updateCards.push(response.data);
+
+      this.setState({ cards: updateCards });
+    })
+    .catch((error) => {
+      console.log(error);
+
+      this.props.updateStatusCallback(`${error.message}: failed to add new card`, 'error');
+    });
   }
 
   render() {
 
     const cards = this.state.cards.map((card, index) => {
-      console.log(card)
       return <Card key={index}
         text={card.card.text}
         emoji={card.card.emoji} />
@@ -65,12 +78,11 @@ class Board extends Component {
     return (
       <section>
 
-      <NewCardForm addCardCallback={this.addCard}/>
-
-
       <div className="board">
         { cards }
       </div>
+
+      < NewCardForm addCardCallback={this.addCard}/>
 
       </section>
     );

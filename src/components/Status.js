@@ -12,7 +12,7 @@ class Status extends React.Component {
 
 
     return (
-      <section className={`status ${this.props.type}`}>
+      <section className="validation-errors-display validation-errors-display__list">
         {this.props.message}
       </section>
     );
