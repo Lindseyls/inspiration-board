@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
 
-    this.state={
+    this.state = {
       status: {
         messasge: 'loaded the page',
         type: 'success'

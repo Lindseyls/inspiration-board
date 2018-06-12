@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './Board.css';
 import Card from './Card';
-// import NewCardForm from './NewCardForm';
+import NewCardForm from './NewCardForm';
 // import CARD_DATA from '../data/card-data.json';
 
 const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi-Lindsey/cards";
@@ -46,6 +46,13 @@ class Board extends Component {
     });
   }
 
+  addCard = (card) => {
+    let updateCards = this.state.cards;
+    updateCards.push(card);
+
+    this.setState({ cards: updateCards });
+  }
+
   render() {
 
     const cards = this.state.cards.map((card, index) => {
@@ -56,9 +63,16 @@ class Board extends Component {
     });
 
     return (
+      <section>
+
+      <NewCardForm addCardCallback={this.addCard}/>
+
+
       <div className="board">
         { cards }
       </div>
+
+      </section>
     );
   }
 
