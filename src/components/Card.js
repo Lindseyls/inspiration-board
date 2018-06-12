@@ -5,21 +5,25 @@ import emoji from 'emoji-dictionary';
 import './Card.css';
 
 class Card extends Component {
-  static propTypes = {
-  text: PropTypes.string,
-  emoji: PropTypes.string
-  };
+  onClickHandler = () => {
+    this.props.deleteCallback(this.props.index, this.props.id);
+  }
 
   render() {
     return (
       <section className="card">
-        <button className="card__delete">X</button>
-        <div className="card__content card__content-text">
-          {this.props.text}
-        </div>
+        <button
+          className="card__delete"
+          onClick={ this.onClickHandler }>X</button>
 
-        <div className="card__content card__content-emoji">
-          {emoji.getUnicode(`${this.props.emoji}`)}
+        <div className="card__content">
+          <h1 className="card__content-text">
+            {this.props.text}
+          </h1>
+
+          <h1 className="card__content-emoji">
+            {emoji.getUnicode(`${this.props.emoji}`)}
+          </h1>
         </div>
       </section>
     )
@@ -27,7 +31,11 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-
+  text: PropTypes.string,
+  emoji: PropTypes.string,
+  index: PropTypes.number,
+  id: PropTypes.number,
+  deleteCallback: PropTypes.func
 };
 
 export default Card;

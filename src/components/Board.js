@@ -10,11 +10,6 @@ import NewCardForm from './NewCardForm';
 const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi-Lindsey/cards";
 
 class Board extends Component {
-  static propTypes = {
-    cards: PropTypes.array.isRequired,
-    updateStatusCallback: PropTypes.func.isRequired
-  };
-
   constructor() {
     super();
 
@@ -68,12 +63,19 @@ class Board extends Component {
     });
   }
 
+  // deleteCard = (index, id) => {
+  //   let updateCards = this.state.
+  // }
+
   render() {
 
     const cards = this.state.cards.map((card, index) => {
       return <Card key={index}
+        index={index}
+        id={card.card.id}
         text={card.card.text}
-        emoji={card.card.emoji} />
+        emoji={card.card.emoji}
+        deleteCallback={this.deleteCard}/>
     });
 
     console.log(this.state.cards);
@@ -94,7 +96,8 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-
+  cards: PropTypes.array.isRequired,
+  updateStatusCallback: PropTypes.func.isRequired
 };
 
 export default Board;
