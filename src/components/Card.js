@@ -13,6 +13,7 @@ class Card extends Component {
   render() {
     return (
       <section className="card">
+        <button className="card__delete">X</button>
         <div className="card__content card__content-text">
           {this.props.text}
         </div>

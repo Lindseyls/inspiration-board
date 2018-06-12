@@ -48,6 +48,7 @@ class Board extends Component {
 
   addCard = (cardInfo) => {
     console.log('In addCard');
+    console.log(cardInfo);
 
     axios.post(CARDS_URL, cardInfo)
     .then((response) => {
@@ -75,6 +76,8 @@ class Board extends Component {
         emoji={card.card.emoji} />
     });
 
+    console.log(this.state.cards);
+
     return (
       <section>
 
@@ -82,7 +85,7 @@ class Board extends Component {
         { cards }
       </div>
 
-      < NewCardForm addCardCallback={this.addCard}/>
+      <NewCardForm addCardCallback={this.addCard}/>
 
       </section>
     );

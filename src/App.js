@@ -33,12 +33,12 @@ class App extends Component {
           <h1 className="header__h1"><span className="header__text">Inspiration Board</span></h1>
         </header>
 
-      < Status
+      <Status
         message={this.state.status.message}
         type={this.state.status.type}
       />
 
-      < Board
+      <Board
         updateStatusCallback={this.updateStatus}
         // url="https://inspiration-board.herokuapp.com/boards/"
         // boardName={`Luxi-Lindsey`}
