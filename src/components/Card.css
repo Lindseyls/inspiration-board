@@ -48,3 +48,8 @@
   border: none;
   font-size: 1em;
 }
+
+.card__delete:hover {
+  font-size: 2rem;
+  color: orange;
+}

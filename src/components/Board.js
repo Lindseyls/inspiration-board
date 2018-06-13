@@ -26,9 +26,8 @@ class Board extends Component {
     axios.get(CARDS_URL)
     .then((response) => {
       console.log('Success!');
-      console.log(response.data);
 
-      this.props.updateStatusCallback('Successfully loaded cards!', 'success');
+      this.props.updateStatusCallback('Successfully loaded all cards!', 'success');
 
       const cards = response.data;
       this.setState({ cards: cards });
@@ -43,13 +42,11 @@ class Board extends Component {
 
   addCard = (cardInfo) => {
     console.log('In addCard');
-    console.log(cardInfo);
 
     axios.post(CARDS_URL, cardInfo)
     .then((response) => {
-      console.log(response)
 
-      this.props.updateStatusCallback(`Successfully added card ${ response.data.id }!`, 'success');
+      this.props.updateStatusCallback(`Successfully added card ${ response.data.card.id }!`, 'success');
 
       let updateCards = this.state.cards;
       updateCards.push(response.data);
@@ -63,9 +60,30 @@ class Board extends Component {
     });
   }
 
-  // deleteCard = (index, id) => {
-  //   let updateCards = this.state.
-  // }
+  deleteCard = (index, id) => {
+    console.log('In deleteCard')
+
+    let updateCards = this.state.cards;
+    updateCards.splice(index, 1)
+    this.setState({ cards: updateCards });
+
+    const DELETE_URL = CARDS_URL + `/${id}`
+
+    axios.delete(DELETE_URL)
+    .then((response) => {
+      console.log('Deleted!');
+      console.log(response.data);
+
+      this.props.updateStatusCallback('Successfully deleted card!', 'success');
+
+    })
+    .catch((error) => {
+      console.log('Error :(');
+      console.log(error);
+
+      this.props.updateStatusCallback(error.message, 'error');
+    });
+  }
 
   render() {
 
@@ -77,8 +95,6 @@ class Board extends Component {
         emoji={card.card.emoji}
         deleteCallback={this.deleteCard}/>
     });
-
-    console.log(this.state.cards);
 
     return (
       <section>
@@ -96,7 +112,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  cards: PropTypes.array.isRequired,
+  // cards: PropTypes.array.isRequired,
   updateStatusCallback: PropTypes.func.isRequired
 };
 
