@@ -42,7 +42,7 @@ class App extends Component {
         updateStatusCallback={this.updateStatus}
         // url="https://inspiration-board.herokuapp.com/boards/"
         // boardName={`Luxi-Lindsey`}
-      />;
+      />
 
       </section>
     );

@@ -5,9 +5,6 @@ exports[`Board deep mount 1`] = `
   updateStatusCallback={[Function]}
 >
   <section>
-    <div
-      className="board"
-    />
     <NewCardForm
       addCardCallback={[Function]}
     >
@@ -122,17 +119,20 @@ exports[`Board deep mount 1`] = `
         </form>
       </section>
     </NewCardForm>
+    <div
+      className="board"
+    />
   </section>
 </Board>
 `;
 
 exports[`Board shallow mount 1`] = `
 <section>
-  <div
-    className="board"
-  />
   <NewCardForm
     addCardCallback={[Function]}
+  />
+  <div
+    className="board"
   />
 </section>
 `;

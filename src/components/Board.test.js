@@ -4,21 +4,21 @@ import { mount, shallow } from 'enzyme';
 
 describe ('Board', () => {
   test('deep mount', () => {
-    const board = mount(
+    const boardComponent = mount(
       <Board updateStatusCallback={() => {} } />
     );
 
-    expect(board).toMatchSnapshot();
+    expect(boardComponent).toMatchSnapshot();
 
-    board.unmount();
+    boardComponent.unmount();
   });
 
   test('shallow mount', () => {
-    const board = shallow(
+    const boardComponent = shallow(
       <Board updateStatusCallback={() => {} } />
     );
 
-    expect(board).toMatchSnapshot();
+    expect(boardComponent).toMatchSnapshot();
 
   });
 });

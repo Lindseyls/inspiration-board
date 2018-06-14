@@ -56,7 +56,7 @@ class Board extends Component {
     .catch((error) => {
       console.log(error);
 
-      this.props.updateStatusCallback(`${error.message}: failed to add new card`, 'error');
+      this.props.updateStatusCallback(`${error.message} - failed to add new card`, 'error');
     });
   }
 
@@ -98,13 +98,11 @@ class Board extends Component {
 
     return (
       <section>
+      <NewCardForm addCardCallback={this.addCard}/>
 
       <div className="board">
         { cards }
       </div>
-
-      <NewCardForm addCardCallback={this.addCard}/>
-
       </section>
     );
   }

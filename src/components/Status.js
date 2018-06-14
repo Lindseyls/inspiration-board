@@ -13,6 +13,7 @@ class Status extends React.Component {
 
     return (
       <section className="validation-errors-display validation-errors-display__list">
+        {this.props.type === 'error' ? "There was a problem: " : ""}
         {this.props.message}
       </section>
     );

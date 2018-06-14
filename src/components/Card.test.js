@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 
 describe ('Card', () => {
   test('shallow mount', () => {
-    const card = shallow(
+    const cardComponent = shallow(
       <Card deleteCallback={()=> {} } />
     );
 
-    expect(card).toMatchSnapshot();
+    expect(cardComponent).toMatchSnapshot();
   });
 });
