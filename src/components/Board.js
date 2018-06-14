@@ -33,8 +33,8 @@ class Board extends Component {
       this.setState({ cards: cards });
     })
     .catch((error) => {
-      console.log('Error :(');
-      console.log(error);
+      // console.log('Error :(');
+      // console.log(error);
 
       this.props.updateStatusCallback(error.message, 'error');
     });
