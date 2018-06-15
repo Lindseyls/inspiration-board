@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import emoji from 'emoji-dictionary';
 
 import './Card.css';
 
-class Card extends Component {
-  onClickHandler = () => {
-    this.props.deleteCallback(this.props.index, this.props.id);
+const Card = (props) => {
+
+  let onClickHandler = () => {
+    props.deleteCallback(props.index, props.id);
   }
 
-  render() {
-    return (
-      <section className="card">
-        <button
-          className="card__delete"
-          onClick={ this.onClickHandler }>X</button>
+  return (
+    <section className="card">
+      <button
+      className="card__delete"
+      onClick={ onClickHandler }>X</button>
 
-        <div className="card__content">
-          <h1 className="card__content-text">
-            {this.props.text}
-          </h1>
+      <div className="card__content">
+        <h1 className="card__content-text">
+          {props.text}
+        </h1>
 
-          <h1 className="card__content-emoji">
-            {emoji.getUnicode(`${this.props.emoji}`)}
-          </h1>
-        </div>
-      </section>
-    )
-  }
+        <h1 className="card__content-emoji">
+          {emoji.getUnicode(`${props.emoji}`)}
+        </h1>
+      </div>
+    </section>
+  )
 }
 
 Card.propTypes = {

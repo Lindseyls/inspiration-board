@@ -5,7 +5,7 @@ import './NewCardForm.css';
 
 
 const EMOJI_LIST = ["", "heart_eyes", "grin", "grinning", "grimacing",
-"beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"]
+"beer", "clap", "sparkling_heart", "heart_eyes_cat", "star", "dog", "octopus"]
 
 class NewCardForm extends Component {
   static propTypes = {

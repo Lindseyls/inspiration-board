@@ -78,8 +78,8 @@ class Board extends Component {
 
     })
     .catch((error) => {
-      console.log('Error :(');
-      console.log(error);
+      // console.log('Error :(');
+      // console.log(error);
 
       this.props.updateStatusCallback(error.message, 'error');
     });
