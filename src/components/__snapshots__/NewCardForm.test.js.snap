@@ -63,45 +63,105 @@ exports[`NewCardForm that it matches an existing snapshot 1`] = `
           </option>
           <option
             key="3"
+            value="joy"
+          >
+            😂
+          </option>
+          <option
+            key="4"
+            value="star_struck"
+          >
+            🤩
+          </option>
+          <option
+            key="5"
+            value="nerd_face"
+          >
+            🤓
+          </option>
+          <option
+            key="6"
+            value="kissing_heart"
+          >
+            😘
+          </option>
+          <option
+            key="7"
             value="grinning"
           >
             😀
           </option>
           <option
-            key="4"
+            key="8"
             value="grimacing"
           >
             😬
           </option>
           <option
-            key="5"
+            key="9"
             value="beer"
           >
             🍺
           </option>
           <option
-            key="6"
+            key="10"
             value="clap"
           >
             👏
           </option>
           <option
-            key="7"
+            key="11"
             value="sparkling_heart"
           >
             💖
           </option>
           <option
-            key="8"
+            key="12"
             value="heart_eyes_cat"
           >
             😻
           </option>
           <option
-            key="9"
+            key="13"
+            value="joy_cat"
+          >
+            😹
+          </option>
+          <option
+            key="14"
+            value="smile_cat"
+          >
+            😸
+          </option>
+          <option
+            key="15"
+            value="kissing_cat"
+          >
+            😽
+          </option>
+          <option
+            key="16"
+            value="star"
+          >
+            ⭐
+          </option>
+          <option
+            key="17"
             value="dog"
           >
             🐶
+          </option>
+          <option
+            key="18"
+            value="octopus"
+          >
+            🐙
+          </option>
+          <option
+            key="19"
+            value="woman_technologist"
+          >
+            👩‍💻
           </option>
         </select>
       </div>
