@@ -7,7 +7,7 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 // import CARD_DATA from '../data/card-data.json';
 
-const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi-Lindsey/cards";
+const CARDS_URL = "https://inspiration-board.herokuapp.com/boards/Luxi/cards";
 
 class Board extends Component {
   constructor() {
@@ -67,7 +67,7 @@ class Board extends Component {
     updateCards.splice(index, 1)
     this.setState({ cards: updateCards });
 
-    const DELETE_URL = CARDS_URL + `/${id}`
+    const DELETE_URL = `https://inspiration-board.herokuapp.com/cards/${id}`
 
     axios.delete(DELETE_URL)
     .then((response) => {
